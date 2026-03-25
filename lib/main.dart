@@ -139,10 +139,13 @@ class _SignupPageState extends State<SignupPage> {
               ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('Welcome! Account created successfully.'),
-                        backgroundColor: Colors.green,
+                    // 🚀 Navigate to the Welcome screen, passing the user's name
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => WelcomeScreen(
+                          name: _nameController.text, // Pass the name from the controller
+                        ),
                       ),
                     );
                   }
